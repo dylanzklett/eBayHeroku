@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+ 
+
+    root 'home#index'
+
+    post 'sessions/new', to: "sessions#create"
+    get '/callback', to: "home#index"
+    get '/test', to: 'home#test'
+    resources :users
+    resources :sessions
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,40 @@
+<h1>
+	Welcome to Kollector
+</h1>
+<% if current_user == nil %>
+	<h2>
+		Sign Up:
+	</h2>
+	<%= form_for @user do |f| %>
+	  <%=f.label :email %>
+	  <p>
+	  	<%=f.text_field :email %>
+	  </p>
+	  <%=f.label :password %>
+	  <p>
+	  	<%=f.password_field :password %>
+	  </p>
+	  <%= f.submit :Submit%>
+	<% end %>
+
+
+	<h2>
+		Sign In:
+	</h2>
+	<%= form_tag("/sessions", method: "post") do %>
+	  <%=label_tag :email %>
+	  <p>
+	  	<%=text_field_tag :email %>
+	  </p>
+	  <%=label_tag :password %>
+	  <p>
+	  	<%=password_field_tag :password %>
+	  </p>
+	  <%= submit_tag :Login%>
+	<% end %>
+<% end %>
+
+<% if current_user %>
+	<%= link_to "Return to Profile", user_path(current_user)%>
+	<%=link_to "Log Out", session_path(current_user), method: :delete, data:{confirm: "Are you sure you want to log out?"}%>
+<% end %>
