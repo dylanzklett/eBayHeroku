@@ -2,6 +2,11 @@
 	Hello, <%=@user.email%>!
 </h1>
 <% if current_user %>
+
+<h3>
+	<%=link_to "Get Time", test_path %>
+</h3>
+
 <h3>
 	<%=link_to "Edit Account", edit_user_path(@user) %>
 </h3>
