@@ -1,0 +1,19 @@
+<h1>Edit User Account and Settings</h1>
+
+<%=form_for @user do |f| %>
+	<%= f.label :email %>
+	<%=f.text_field :email %>
+	<%=f.label :password %>
+	<%=f.password_field :password %>
+	<%=f.submit :Update %>
+<% end %>
+
+<h3>
+	<%=link_to "Return to Profile", user_path(@user) %>
+</h3>
+
+<h3>
+	<% if @user == current_user %>
+    <%=link_to "Delete Account", user_path(@user), method: :delete, data: { confirm:'Are you sure? This will destroy all collection records associated with this account.'} %>
+	<% end %>
+</h3>
