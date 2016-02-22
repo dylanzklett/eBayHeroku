@@ -1,0 +1,19 @@
+<h1>Create a new event!</h1>
+
+<%= form_for @event do |f| %>
+	  <%=f.label :location %>
+	  <p>
+	  	<%=f.text_field :location %>
+	  </p>
+	  <%=f.label :venue %>
+	  <p>
+	  	<%=f.text_field :venue %>
+	  </p>
+	  <p>
+	  	<%=f.label :event_type %>
+	  </p>
+	  <p>
+	  	<%=f.text_field :event_type %>
+	  </p>
+	  <%= f.submit :Submit%>
+<% end %>

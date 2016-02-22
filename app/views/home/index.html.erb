@@ -35,6 +35,7 @@
 <% end %>
 
 <% if current_user %>
+	<h3>The sign-up and sign-in page is unavailable becuse there is currently a user logged in. Please log out or return to your profile before continuing.</h3>
 	<%= link_to "Return to Profile", user_path(current_user)%>
-	<%=link_to "Log Out", session_path(current_user), method: :delete, data:{confirm: "Are you sure you want to log out?"}%>
+	<%=link_to "Log Out", session_path(current_user), method: :delete%>
 <% end %>

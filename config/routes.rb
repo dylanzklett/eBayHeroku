@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
  
 
+  get 'events/index'
+
     root 'home#index'
 
     post 'sessions/new', to: "sessions#create"
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
     get '/test', to: 'home#test'
     resources :users
     resources :sessions
+    resources :events
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

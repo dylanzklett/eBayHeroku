@@ -1,0 +1,14 @@
+<h1>Welcome to Kollector</h1>
+<h2>Where will you be next?</h2>
+
+<%=link_to "Create A Local Event?", new_event_path %>
+
+<h2>All Current Events:</h2>
+
+<% @events.each do |e| %>
+	<h3>Location: </h3>
+	<%= e.location %>
+	<h3>Venue: </h3>
+	<%= e.venue %>
+<% end %>
+
