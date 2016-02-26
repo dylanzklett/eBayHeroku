@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   		redirect_to	user_path(@user)
   	else
   		flash[:notice] = "There was an error creating your account. Try again."
-  		render "new"
+  		redirect_to root_path
   	end
   end
 

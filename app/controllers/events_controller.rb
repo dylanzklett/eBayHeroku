@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   def index
   	@AdminEvents = Event.where(admin:true)
-    @LocalEvents = Event.where(admin:false)
+    @LocalEvents = Event.where(admin:nil)
   end
   def new
   	@event = Event.new
@@ -23,6 +23,6 @@ class EventsController < ApplicationController
 
   private
   def event_params
-  	params.require(:event).permit(:location, :venue, :event_type)
+  	params.require(:event).permit(:location, :venue, :event_type, :event_name, :admin, :format, :date, :notes)
   end
 end
