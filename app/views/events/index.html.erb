@@ -1,27 +1,102 @@
 <h1>Welcome to Kollector</h1>
-<h2>Where will you be next?</h2>
-
 <%=link_to "Create A Local Event?", new_event_path %>
 
-<h2>All Current Events:</h2>
+<h2>Where will you be next?</h2>
 
-<% @events.each do |e| %>
+<h2>All Reigonal Events:</h2>
+
+<% @AdminEvents.each do |e| %>
 
 	<div>
 		<%= hidden_field_tag :event_id, e.id %>
 	</div>
 
-	<h3>Location: </h3>
-	<%= e.location %>
-	<h3>Venue: </h3>
+	<h3>
+		Event Name: 
+	</h3>
+	<%= e.event_name %>
+
+	<h3>
+		Event Type: 
+	</h3>
+	<%= e.event_type %>
+
+	<h3>
+		Format: 
+	</h3>
+	<%= e.format %>
+
+	<h3>
+		Venue: 
+	</h3>
 	<%= e.venue %>
 
-	<div id="favorite_form">
-	<% if current_user.userevents.find_by(id: params[:id]) %>
-		<%= form_for(current_user.userevents.find(params[:id]), url: userfollowevents_path, remote: true,  html: { method: :delete }) do |f| %>
-			<div><%= hidden_field_tag :event_id, e.id %></div>
+	<h3>
+		Date: 
+	</h3>
+	<%= e.date %>
+
+<div id="favorite_form-<%=e.id%>">
+	<% if current_user.userevents.find_by(id: e.id) %>
+		<%= form_for(current_user.userevents.find_by(id: e.id), url: userfollowevents_path, remote: true,  html: { method: :delete }) do |f| %>
+			<div>
+				<%= hidden_field_tag :event_id, e.id %>
+			</div>
 			<%= f.submit "Not Going", class: "btn" %>
+		<% end %>
+	<% else %>
+		<%= form_for(current_user.userfollowevents.build, remote: true) do |f| %>
+				<div>
+					<%= hidden_field_tag :event_id, e.id %>
+				</div>
+				<%= f.submit "I'll be there", class: "btn btn-primary" %>
+		<% end %>
 	<% end %>
+</div>
+<% end %>
+
+
+<h2>All Local Events:</h2>
+
+<% @LocalEvents.each do |e| %>
+
+	<div>
+		<%= hidden_field_tag :event_id, e.id %>
+	</div>
+
+	<h3>
+		Event Name: 
+	</h3>
+	<%= e.event_name %>
+
+	<h3>
+		Event Type: 
+	</h3>
+	<%= e.event_type %>
+
+	<h3>
+		Format: 
+	</h3>
+	<%= e.format %>
+
+	<h3>
+		Venue: 
+	</h3>
+	<%= e.venue %>
+
+	<h3>
+		Date: 
+	</h3>
+	<%= e.date %>
+
+<div id="favorite_form-<%=e.id%>">
+	<% if current_user.userevents.find_by(id: e.id) %>
+		<%= form_for(current_user.userevents.find_by(id: e.id), url: userfollowevents_path, remote: true,  html: { method: :delete }) do |f| %>
+			<div>
+				<%= hidden_field_tag :event_id, e.id %>
+			</div>
+			<%= f.submit "Not Going", class: "btn" %>
+		<% end %>
 	<% else %>
 		<%= form_for(current_user.userfollowevents.build, remote: true) do |f| %>
 				<div>

@@ -1,1 +1,1 @@
-$("#favorite_form").html("<%= escape_javascript(render('events/follow')) %>");
+$("#favorite_form-<%=@event.id%>").html("<%= escape_javascript(render('events/follow')) %>");

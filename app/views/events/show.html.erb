@@ -1,9 +1,9 @@
 
 <h1>
-	Location:
+	Event:
 </h1>
 <h3>
-	<%=@event.location %>
+	<%=@event.event_name %>
 </h3>
 <h1>
 	Venue:
@@ -11,14 +11,21 @@
 <h3>
 	<%=@event.venue %>
 </h3>
+
+<h1>
+	Date:
+</h1>
+<h3>
+	<%=@event.date %>
+</h3>
 <div id="favorite_form">
 	<% if current_user.userevents.find_by(id: params[:id]) %>
-		<%= form_for(current_user.userevents.find(params[:id]), url: userfollowevents_path, remote: true,  html: { method: :delete }) do |f| %>
+		<%= form_for(current_user.userevents.find(params[:id]), url: userfollowevents_path,  html: { method: :delete }) do |f| %>
 			<div><%= hidden_field_tag :event_id, @event.id %></div>
 			<%= f.submit "Not Going", class: "btn" %>
 	<% end %>
 	<% else %>
-		<%= form_for(current_user.userfollowevents.build, remote: true) do |f| %>
+		<%= form_for(current_user.userfollowevents.build) do |f| %>
 				<div>
 					<%= hidden_field_tag :event_id, @event.id %>
 				</div>

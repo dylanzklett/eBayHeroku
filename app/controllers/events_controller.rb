@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
-  	@events = Event.all
+  	@AdminEvents = Event.where(admin:true)
+    @LocalEvents = Event.where(admin:false)
   end
   def new
   	@event = Event.new
