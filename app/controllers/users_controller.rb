@@ -18,8 +18,8 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-    @events = Event.where(:user_id == @user.id)
-    @cards = Card.where(:user_id == current_user.id)
+    @events = Event.where(user_id: @user.id)
+    @cards = Card.where(user_id: params[:id])
     @card = Card.new
   end
 
