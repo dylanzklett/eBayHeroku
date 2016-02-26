@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
 	#user many-to-many associations
-	has_many :attendance
-	has_many :users, through: :attendance
+	has_many :userfollowevents
+	has_many :userevents, through: :userfollowevents, source: :user
 end

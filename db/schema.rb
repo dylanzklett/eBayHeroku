@@ -11,30 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160222201342) do
+ActiveRecord::Schema.define(version: 20160226154412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attendances", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "event_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "attendances", ["event_id"], name: "index_attendances_on_event_id", using: :btree
-  add_index "attendances", ["user_id"], name: "index_attendances_on_user_id", using: :btree
-
   create_table "cards", force: :cascade do |t|
     t.string   "name"
     t.string   "set"
-    t.decimal  "price",      precision: 8, scale: 2
-    t.boolean  "wanted"
-    t.boolean  "offered"
     t.integer  "user_id"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.boolean  "foil"
+    t.string   "notes"
+    t.boolean  "status"
+    t.boolean  "promo"
+    t.decimal  "price",      precision: 8
   end
 
   add_index "cards", ["user_id"], name: "index_cards_on_user_id", using: :btree
@@ -45,7 +37,18 @@ ActiveRecord::Schema.define(version: 20160222201342) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "event_type"
+    t.string   "event_name"
   end
+
+  create_table "userfollowevents", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "userfollowevents", ["event_id"], name: "index_userfollowevents_on_event_id", using: :btree
+  add_index "userfollowevents", ["user_id"], name: "index_userfollowevents_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
@@ -55,7 +58,7 @@ ActiveRecord::Schema.define(version: 20160222201342) do
     t.datetime "updated_at",      null: false
   end
 
-  add_foreign_key "attendances", "events"
-  add_foreign_key "attendances", "users"
   add_foreign_key "cards", "users"
+  add_foreign_key "userfollowevents", "events"
+  add_foreign_key "userfollowevents", "users"
 end

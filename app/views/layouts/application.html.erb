@@ -7,6 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="nav">
+		<% if current_user %>
+		<p>
+			<%=link_to "Profile", user_path(current_user)%>
+		</p>
+		<p>
+			<%=link_to "All Events", events_path %>
+		</p>
+		<p>
+			<%=link_to "My Events", userfollowevents_path %>
+		</p>
+		<p>
+			<%=link_to "Log Out", session_path(current_user), method: :delete, data:{confirm: "Are you sure you want to log out?"}%>
+		</p>
+		<% end %>
+	</div>
 <% if flash[:notice] %>
      <div class="flash notice">
      	<%= flash[:notice] %>     

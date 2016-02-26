@@ -1,0 +1,24 @@
+<h1>List a New Card</h1>
+<%= form_for @card do |f| %>
+
+	  <% @status = {Wanted: true, Offered: false} %>
+	  <%=f.label :name %>
+	  <p>
+	  	<%=f.text_field :name %>
+	  </p>
+	  <%=f.label :set %>
+	  <p>
+	  	<%=f.text_field :set %>
+	  </p>
+	  <%=f.label :price %>
+	  <p>
+	  	<%=f.text_field :price %>
+	  </p>
+	  <p>
+		<%=f.label :Status %>
+	  </p>
+	  <p>
+		<%=collection_select(:card, :status, @status, :last, :first, prompt: true)%>
+	  </p>
+	  <%= f.submit :Submit%>
+<% end %>

@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
  
 
+  get 'follows/index'
+
   get 'events/index'
 
     root 'home#index'
+
+  delete 'userfollowevents', to: 'userfollowevents#destroy'
 
     post 'sessions/new', to: "sessions#create"
     get '/callback', to: "home#index"
@@ -11,6 +15,8 @@ Rails.application.routes.draw do
     resources :users
     resources :sessions
     resources :events
+    resources :userfollowevents
+    resources :cards
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

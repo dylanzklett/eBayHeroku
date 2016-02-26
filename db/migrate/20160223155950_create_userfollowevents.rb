@@ -1,6 +1,6 @@
-class CreateAttendances < ActiveRecord::Migration
+class CreateUserfollowevents < ActiveRecord::Migration
   def change
-    create_table :attendances do |t|
+    create_table :userfollowevents do |t|
       t.references :user, index: true, foreign_key: true
       t.references :event, index: true, foreign_key: true
 
