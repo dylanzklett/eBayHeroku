@@ -1,17 +1,45 @@
 <h1>
 	Hello, <%=@user.email%>!
 </h1>
-<% if current_user %>
+
+<%= link_to "Account Settings", edit_user_path(@user) %>
 
 <h3>
-	<%=link_to "Events Schedule", events_path %>
+	Your Listed Cards
 </h3>
+<ul>
+	<% @cards.each do |e| %>
+	<div>
+		<%= hidden_field_tag :card_id, e.id %>
+	</div>
+	<li>
+		<p>Name: </p><%=e.name %>
+	</li>
+	<li>
+		<p>Price: </p><%=e.price %>
+	</li>
+	<li>
+		<%= hidden_field_tag :card_status, e.status %>
+		<% if e.status == true %>
+			<p>Status: Wanted</p>
+		<% elsif e.status == false %>
+			<p>Status: Offered</p>
+		<% else %>
+			<p>Status: Didn't work. </p> 
+		<% end %>
+	</li>
+</ul>
+	<%=link_to "Remove Card Listing", card_path(e), method: :delete, data:{confirm: "Remove this card from your collection?"} %>
+	<% end %>
+	
 
-<h3>
-	<%=link_to "Edit Account", edit_user_path(@user) %>
-</h3>
-
-<h3>
-	<%=link_to "Log Out", session_path(@user), method: :delete, data:{confirm: "Are you sure you want to log out?"}%>
-</h3>
+<%if @cards == [] %>
+	<p>
+		You haven't listed any cards yet!
+	</p>
 <% end %>
+
+
+<p>
+	<%=link_to "List a New Card", new_card_path %>
+</p>

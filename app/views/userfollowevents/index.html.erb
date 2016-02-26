@@ -1,0 +1,8 @@
+<h1>My Upcoming Events</h1>
+<ul>
+	<% @events.each do |e| %>
+	<li>
+		<%= link_to e.location, e %>
+	</li>
+	<% end %>
+</ul>
