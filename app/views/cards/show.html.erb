@@ -1,0 +1,21 @@
+
+
+
+<%@price.each do |c| %>
+
+<p>
+	<%=@users.where(id:c.user_id).last.email%>
+</p>
+Has A:
+<p>
+<%=c.name %>
+</p>
+Valued at:
+<p>
+	$<%=c.price%>
+</p>
+They'll be at these events with you:
+<p>
+	<%=    %>
+</p>
+<% end %>

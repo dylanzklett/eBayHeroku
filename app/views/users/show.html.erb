@@ -25,11 +25,15 @@
 		<% elsif e.status == false %>
 			<p>Status: Offered</p>
 		<% else %>
-			<p>Status: Didn't work. </p> 
 		<% end %>
 	</li>
 </ul>
-	<%=link_to "Remove Card Listing", card_path(e), method: :delete, data:{confirm: "Remove this card from your collection?"} %>
+	<p>
+		<%=link_to "View trading matches", card_path(e) %>
+	</p>
+	<p>
+		<%=link_to "Remove Card Listing", card_path(e), method: :delete, data:{confirm: "Remove this card from your collection?"} %>
+	</p>
 	<% end %>
 	
 

@@ -8,6 +8,7 @@ class EventsController < ApplicationController
   end
   def create
   	@event = Event.create(event_params)
+    @event.user_id = current_user.id
   	if @event.save
   		redirect_to events_path
   	else
@@ -18,6 +19,16 @@ class EventsController < ApplicationController
 
   def show 
     @event = Event.find(params[:id])
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    if @event.destroy
+      redirect_to events_path
+    else
+      flash[:notice] = "Couldn't remove that event. Check your admin privileges."
+      redirect_to events_path
+    end
   end
 
 

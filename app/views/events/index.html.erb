@@ -53,6 +53,9 @@
 		<% end %>
 	<% end %>
 </div>
+	<% if e.admin == true && current_user.admin == true %>
+		<%=link_to "Delete this event (Admin privilege only)", event_path(e), method: :delete %>
+	<% end %>
 <% end %>
 
 
@@ -104,6 +107,9 @@
 				</div>
 				<%= f.submit "I'll be there", class: "btn btn-primary" %>
 		<% end %>
+	<% end %>
+	<% if e.user_id == current_user.id || current_user.admin == true %>
+		<%=link_to "Delete this event (Creator privilege only)", event_path(e), method: :delete %>
 	<% end %>
 </div>
 <% end %>

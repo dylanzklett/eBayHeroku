@@ -26,6 +26,23 @@ class CardsController < ApplicationController
 
 	end
 
+	def show
+		@users = User.where.not(id:current_user.id)
+		@card = Card.find(params[:id])
+		#Step 0: All Cards except current card displayed
+		@all = Card.where.not(id:params[:id])
+		#Step 1: find all cards with that name
+		@name = @all.where(name:@card.name)
+		#Step 2: take all appropriately named cards and separate out to only matching sets
+		@set = @name.where(set:@card.set)
+		#Step 3: separate out only those prices which match given amounts
+		if @card.status == true
+			@price = @set.where("price <= #{@card.price}")
+		else
+			@price = @set.where("price >= #{@card.price}")
+		end
+
+	end
 
 	def destroy
 		@card = Card.find(params[:id])
