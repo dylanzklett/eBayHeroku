@@ -41,7 +41,9 @@ class CardsController < ApplicationController
 		else
 			@price = @set.where("price >= #{@card.price}")
 		end
-
+		# @events = Event.all
+		# @CUevents = Userfollowevent.where(user_id: current_user.id)
+		# @otherevents = Userfollowevent.where(user_id:)
 	end
 
 	def destroy

@@ -14,4 +14,7 @@ class User < ActiveRecord::Base
 	has_secure_password
 	validates_confirmation_of :password
 	validates_presence_of :password, on: :create
+
+	#enables messaging through Mailboxer gem
+	# acts_as_messageable
 end

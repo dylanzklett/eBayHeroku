@@ -32,6 +32,9 @@ gem 'rails_12factor'
 #implement eBay's trading API
 gem 'ebayr'
 
+#Insert messaging capabilities
+gem 'mailboxer'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
