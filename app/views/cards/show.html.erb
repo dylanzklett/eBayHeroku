@@ -1,21 +1,23 @@
 
 
-
 <%@price.each do |c| %>
 
-<p>
-	<%=@users.where(id:c.user_id).last.email%>
-</p>
-Has A:
-<p>
-<%=c.name %>
-</p>
-Valued at:
-<p>
-	$<%=c.price%>
-</p>
-<!-- They'll be at these events with you: -->
-<p>
-	
-</p>
+		<% if @users.where(id:c.user_id).first.email %>
+		<p>
+			<%=@users.where(id:c.user_id).first.email%>
+		</p>
+			Has A:
+		<p>
+			<%=c.name %>
+		</p>
+			Valued at:
+		<p>
+			$<%=c.price%>
+			<% else %>
+		<p>
+			There aren't any matches for your listing right now. Check back later!
+		</p>
+		<% end %>
+	</p>
 <% end %>
+	

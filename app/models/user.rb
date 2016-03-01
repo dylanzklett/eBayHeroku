@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
 	#Event many-to-many associations
-	has_many :userfollowevents, foreign_key: :user_id
-	has_many :userevents, through: :userfollowevents, source: :event
+	has_many :userfollowevents, foreign_key: :user_id, dependent: :destroy
+	has_many :userevents, through: :userfollowevents, source: :event, dependent: :destroy
 
 	#card one-to-many associations
-	has_many :cards
+	has_many :cards, dependent: :destroy
 
 	#email validations
 	validates_presence_of :email, on: :create

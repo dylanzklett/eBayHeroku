@@ -18,14 +18,6 @@ class CardsController < ApplicationController
 		end
 	end
 
-	def edit
-		@card = Card.find(params[:id])
-	end
-
-	def update
-
-	end
-
 	def show
 		@users = User.where.not(id:current_user.id)
 		@card = Card.find(params[:id])
@@ -40,10 +32,10 @@ class CardsController < ApplicationController
 			@price = @set.where("price <= #{@card.price}")
 		else
 			@price = @set.where("price >= #{@card.price}")
+
 		end
-		# @events = Event.all
-		# @CUevents = Userfollowevent.where(user_id: current_user.id)
-		# @otherevents = Userfollowevent.where(user_id:)
+
+		# @CUlinks = current_user.userevents
 	end
 
 	def destroy
