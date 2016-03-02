@@ -35,7 +35,17 @@ class CardsController < ApplicationController
 
 		end
 
-		# @CUlinks = current_user.userevents
+		@result = []
+
+		@price.each do |c|
+			c.user.userevents.each do |carduv|
+				current_user.userevents.each do |u|
+					if carduv == u
+						@result.push(carduv)
+					end
+				end
+			end
+		end
 	end
 
 	def destroy

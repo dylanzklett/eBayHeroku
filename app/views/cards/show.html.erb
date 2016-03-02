@@ -13,6 +13,16 @@
 			Valued at:
 		<p>
 			$<%=c.price%>
+		</p>
+		<p>
+			They'll be at these events with you:
+			<% @result.each do |r|%>
+				<%= r.event_name %>
+			<% end %>
+		</p>
+
+
+
 			<% else %>
 		<p>
 			There aren't any matches for your listing right now. Check back later!

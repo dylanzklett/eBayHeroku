@@ -1,0 +1,131 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+html{
+	height:100%;
+	width:100%;
+}
+
+
+/*Home Page - Sign Up - Sign In Styling*/
+.background{
+	background-image: url(<%=asset_path 'cityscape.jpeg' %>);
+	background-repeat: no-repeat;
+	height: 100%;
+	width:100%;
+}
+
+#background-404{
+	background-image: url('https://thejapanhobbyist.files.wordpress.com/2015/09/anger-of-the-gods-art.jpg?w=1200');
+	height: 100%;
+	width:100%;
+	color:white;
+}
+.log-error{
+	background-color: black;
+	color:white;
+}
+
+/*Card background image to use later:
+background-image: url(<%=asset_path 'card-back.jpeg' %>);*/
+
+#illum{
+	font-size:80px;
+}
+
+.background-center{
+	max-width:520px;
+	max-height:720px;
+	margin: 0 auto;
+	opacity:0.8;
+}
+
+.home-form{
+	background-color:black;
+	color:orange;
+}
+.nav{
+	background-image: url('http://www.artofmtg.com/wp-content/uploads/2014/04/Anger-of-the-Gods-Art.jpg');
+	height:50px;
+	font-size: 30px;
+}
+
+.nav-button{
+	float:left;
+	margin-right: 7%;
+	margin-left: 7%;
+}
+
+
+/*User Show Page Styling*/
+
+.user-backg{
+	background-image: url('http://pre12.deviantart.net/a0f0/th/pre/f/2007/322/8/5/lost_by_kerembeyit.jpg');
+	height:700px;
+	width:100%;
+}
+.greeting{
+	/*background-color: #91aab3;
+	opacity:0.6;*/
+	background: rgba(145,170,179,0.6);
+	max-width: 450px;
+	margin:0 auto;
+}
+.greeting-text{
+	background-color: rgba(0,0,0,0.6);
+	color:white;
+	font-size: 25px;
+	opacity: 1.0 !important;
+}
+.align-left{
+	text-align: left;
+}
+
+/*Events Index Styling*/
+
+.e-background{
+	background-image: url('https://nurgleprobe.files.wordpress.com/2013/04/mtg-art-orzhov-guildgate.jpg');
+	height:100%;
+	width: 100%;
+}
+
+.event-header{
+	text-align: center;
+	color:white;
+	a{
+		float:right;
+		font-size: 22px;
+		opacity: 0.7;
+		border-radius: 10px;
+		margin-right: 4%;
+		color:orange;
+	}
+}
+
+.reigonal{
+	color:white;
+}
+.reigon-header{
+	text-align: center;
+}
+.reigon-details{
+
+}
+
+
+.local-header{
+	text-align: center;
+}
