@@ -1,49 +1,49 @@
-<h1>
-	Hello, <%=@user.email%>!
-</h1>
+<div class="user-backg text-center">
+	<div class="greeting">
+		<div class="greeting-text">
+			<h1>
+				Hello, <%=@user.email%>
+			</h1>
+			<%=link_to "List a New Card", new_card_path %>
+			<br>
+			<%=link_to "Find an Event", events_path %>
+				<h3>
+					Your Listed Cards:
+				</h3>
+				<% @cards.each do |e| %>
+				<div>
+					<%= hidden_field_tag :card_id, e.id %>
+				</div>
+					<p>Name: <%=e.name %></p>
+					<p>Price: $<%=e.price %></p>
 
-<%= link_to "Account Settings", edit_user_path(@user) %>
+					<%= hidden_field_tag :card_status, e.status %>
 
-<h3>
-	Your Listed Cards
-</h3>
-<ul>
-	<% @cards.each do |e| %>
-	<div>
-		<%= hidden_field_tag :card_id, e.id %>
+					<% if e.status == true %>
+						<p>Status: Wanted</p>
+					<% elsif e.status == false %>
+						<p>Status: Offered</p>
+					<% else %>
+					<% end %>		
+					<p>
+						<%=link_to "View trading matches", card_path(e) %>
+					</p>
+					<p>
+						<%=link_to "Remove Card Listing", card_path(e), method: :delete, data:{confirm: "Remove this card from your collection?"} %>
+					</p>
+					<% end %>
+					
+
+				<%if @cards == [] %>
+					<p>
+						You haven't listed any cards yet!
+					</p>
+				<% end %>
+
+				<br>
+				<p>
+					<%= link_to "Account Settings", edit_user_path(@user) %>
+				</p>
+		</div>
 	</div>
-	<li>
-		<p>Name: </p><%=e.name %>
-	</li>
-	<li>
-		<p>Price: </p>$<%=e.price %>
-	</li>
-	<li>
-		<%= hidden_field_tag :card_status, e.status %>
-		<% if e.status == true %>
-			<p>Status: Wanted</p>
-		<% elsif e.status == false %>
-			<p>Status: Offered</p>
-		<% else %>
-		<% end %>
-	</li>
-</ul>
-	<p>
-		<%=link_to "View trading matches", card_path(e) %>
-	</p>
-	<p>
-		<%=link_to "Remove Card Listing", card_path(e), method: :delete, data:{confirm: "Remove this card from your collection?"} %>
-	</p>
-	<% end %>
-	
-
-<%if @cards == [] %>
-	<p>
-		You haven't listed any cards yet!
-	</p>
-<% end %>
-
-
-<p>
-	<%=link_to "List a New Card", new_card_path %>
-</p>
+</div>
