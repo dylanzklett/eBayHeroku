@@ -20,10 +20,15 @@ html{
 }
 
 
+/*Card background image to use later:
+background-image: url(<%=asset_path 'card-back.jpeg' %>);*/
+
+
 /*Home Page - Sign Up - Sign In Styling*/
 .background{
 	background-image: url(<%=asset_path 'cityscape.jpeg' %>);
 	background-repeat: no-repeat;
+	background-size:cover;
 	height: 100%;
 	width:100%;
 }
@@ -38,9 +43,6 @@ html{
 	background-color: black;
 	color:white;
 }
-
-/*Card background image to use later:
-background-image: url(<%=asset_path 'card-back.jpeg' %>);*/
 
 #illum{
 	font-size:80px;
@@ -64,9 +66,12 @@ background-image: url(<%=asset_path 'card-back.jpeg' %>);*/
 }
 
 .nav-button{
+	a{
+		color:white;
+	}
 	float:left;
-	margin-right: 7%;
-	margin-left: 7%;
+	margin-right:2%;
+	margin-left:2%;
 }
 
 
@@ -78,8 +83,6 @@ background-image: url(<%=asset_path 'card-back.jpeg' %>);*/
 	width:100%;
 }
 .greeting{
-	/*background-color: #91aab3;
-	opacity:0.6;*/
 	background: rgba(145,170,179,0.6);
 	max-width: 450px;
 	margin:0 auto;
@@ -98,6 +101,8 @@ background-image: url(<%=asset_path 'card-back.jpeg' %>);*/
 
 .e-background{
 	background-image: url('https://nurgleprobe.files.wordpress.com/2013/04/mtg-art-orzhov-guildgate.jpg');
+	background-position: fixed;
+	background-size: cover; 
 	height:100%;
 	width: 100%;
 }
@@ -115,17 +120,129 @@ background-image: url(<%=asset_path 'card-back.jpeg' %>);*/
 	}
 }
 
-.reigonal{
-	color:white;
+.regional{
+	color:orange;
+	h3, h4{
+		color:white;
+	}
+	.label{
+		background-color: black;
+	}
 }
-.reigon-header{
-	text-align: center;
+.region-header{
+	font-size:50px;
+	background-color: black;
+	opacity: 0.8;
 }
-.reigon-details{
+.region-details{
 
 }
-
 
 .local-header{
-	text-align: center;
+	text-align: left;
+}
+.btn{
+}
+/*Card Match Show Page Styling*/
+
+.match-background{
+	background-image: url('https://cdn77.picsart.com/188733176001201.jpg?r1024x1024');
+	background-size: cover;
+	height:700px;
+	width:100%;
+	color:white;
+	p{
+		font-size: 25px;
+		margin-left: 3%;
+		background-color: gray;
+		max-width:200px;
+		border-radius: 10px;
+	}
+	h4{
+		font-size: 25px;
+		background-color: gray;
+		max-width:200px;
+	}
+}
+
+.contact{
+	clear:both;
+	color:orange;
+}
+
+.event-match{
+	p{
+		float:left;
+	}
+}
+
+
+
+
+
+/*User Follow Events (UFE) Page Styling*/
+
+.UFE{
+	background-image: url('http://40.media.tumblr.com/a6125eeb69a399102fab883855cde9ae/tumblr_nr6gw1mA8b1sadc4zo1_1280.jpg');
+	background-size: cover;
+	height:700px;
+}
+.My-Ev-Title{
+	color:white;
+
+}
+
+/*Event Show Page Styling*/
+
+.ev-show-background{
+	background-image: url('http://orig09.deviantart.net/1fa6/f/2012/247/c/f/frogster_game_concept_07_by_memod-d5dklz1.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height:700px;
+	h1, h3{	
+		color:orange;
+		background-color: black;
+		max-width: 300px;
+		text-align: center;
+	}
+	.btn{
+
+	}
+}
+/*new card styling page*/
+
+.new-card-bg{
+	background-image: url('http://img01.deviantart.net/ebfb/i/2015/262/f/4/mtg_seek_the_wilds_by_depingo-d9a4h57.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height:700px;
+	color:white;
+	.btn{
+
+	}
+}
+.UFName{
+	margin-left: 5%;
+	float:left;
+}
+
+/*User Edit Account Page*/
+
+.edit-bg{
+	background-image: url('http://media.wizards.com/images/magic/daily/wallpapers/FatedInfatuation_BNG_2560x1600.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height:700px;
+}
+.edit-head{
+	color:white;
+}
+
+
+/*New Event Page Styling*/
+
+.NE-BG{
+	background-image: url('http://orig01.deviantart.net/9e56/f/2014/273/7/d/island___return_to_ravnica_by_fooyee-d813eth.jpg');
+	background-size: cover;
+	height:700px;
 }
