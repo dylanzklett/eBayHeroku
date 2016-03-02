@@ -1,33 +1,45 @@
+<div class="match-background">
+
+	<%@price.each do |c| %>
+
+			<% if @users.where(id:c.user_id).first.email %>
+			<p class="match-name">
+				Match Found:
+			</p>
+			<p class="match-name">
+				<%=@users.where(id:c.user_id).first.email%>
+			</p>
+			<p>
+				Has A:
+			<p>
+				<%=c.name %>
+			</p>
+			<p>
+				Valued at:
+			</p>
+			<p>
+				$<%=c.price%>
+			</p>
+			
+			<p>
+				They'll be at these events with you:
+			</p>
+				<% @result.each do |r|%>
+				<div class="event-match">
+						<p>
+							<%= r.event_name %>
+						</p>
+					<% end %>
+				</div>		
+			<p class="contact">
+				Send them an email to let them know you're interested in their offer!
+			</p>
 
 
-<%@price.each do |c| %>
-
-		<% if @users.where(id:c.user_id).first.email %>
-		<p>
-			<%=@users.where(id:c.user_id).first.email%>
-		</p>
-			Has A:
-		<p>
-			<%=c.name %>
-		</p>
-			Valued at:
-		<p>
-			$<%=c.price%>
-		</p>
-		<p>
-			They'll be at these events with you:
-			<% @result.each do |r|%>
-				<%= r.event_name %>
+				<% else %>
+			<h4>
+				There aren't any matches for your listing right now. Check back later!
+			</h4>
 			<% end %>
-		</p>
-
-
-
-			<% else %>
-		<p>
-			There aren't any matches for your listing right now. Check back later!
-		</p>
-		<% end %>
-	</p>
-<% end %>
-	
+	<% end %>
+</div>

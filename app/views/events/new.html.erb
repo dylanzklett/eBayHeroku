@@ -1,33 +1,35 @@
-<h1>
-	Create a new event!
-</h1>
-<h3>
-	Register your PTQ, FNM, or weekly draft with us, and we'll find you people there to trade with.
-</h3>
+<div class="NE-BG">
+	<h1>
+		Create a new event!
+	</h1>
+	<h3>
+		Register your PTQ, FNM, or weekly draft with us, and we'll find you people there to trade with.
+	</h3>
 
-<%= form_for @event do |f| %>
-	  	<%=f.label :name %>
-	  <p>
-	  	<%=f.text_field :event_name %>
-	  </p>
-	  	  <%=f.label :format %>
-	  <p>
-	  	<%=f.text_field :format %>
-	  </p>
-	  	<%=f.label :date %>
-	  <p>
-	  	<%=f.text_field :date  %>
-	  </p>
-	  <p>
-	  	<%=f.label :event_type %>
-	  </p>
-	  <p>
-	  	<%=f.text_field :event_type %>
-	  </p>
-	  	<%=f.label :venue %>
-	  <p>
-	  	<%=f.text_field :venue %>
-	  </p>
-	  	<%= hidden_field_tag :admin, nil %>
-	  	<%= f.submit :Submit%>
-<% end %>
+	<%= form_for @event do |f| %>
+		  	<%=f.label :name %>
+		  <p>
+		  	<%=f.text_field :event_name %>
+		  </p>
+		  	  <%=f.label :format %>
+		  <p>
+		  	<%=f.text_field :format %>
+		  </p>
+		  	<%=f.label :date %>
+		  <p>
+		  	<%=f.text_field :date  %>
+		  </p>
+		  <p>
+		  	<%=f.label :event_type %>
+		  </p>
+		  <p>
+		  	<%=f.text_field :event_type %>
+		  </p>
+		  	<%=f.label :venue %>
+		  <p>
+		  	<%=f.text_field :venue %>
+		  </p>
+		  	<%= hidden_field_tag :admin, nil %>
+		  	<%= f.submit :Submit%>
+	<% end %>
+</div>

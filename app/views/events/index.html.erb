@@ -3,58 +3,58 @@
 		<h1>
 			Event Schedule
 		</h1>
-		<h2>
-			Where will you be next?
-		</h2>
 		<%=link_to "Create A Local Event?", new_event_path %>
 		<br>
 	</div>
-	<div class="reigonal">
-			<h2 class="region-header col-md-6">
-				All Reigonal Events:
-			</h2>
-			<h2 class="local-header col-md-6">
-				All Local Events:
-			</h2>
-
+	<div class="regional">
+			<h1 class="region-header col-md-12 text-center">
+				All Regional Events:
+			</h1>
+		<div class="Region-details">
 		<% @AdminEvents.each do |e| %>
 
 			<div>
 				<%= hidden_field_tag :event_id, e.id %>
 			</div>
-		<div class="Reigon-details">
 			<h3>
-				Event Name: 
+				- - -<%= e.event_name %>- - -
 			</h3>
-			<%= e.event_name %>
+			
 
-			<h3>
-				Event Type: 
+			<h4>
+				Level: 
+			</h4>
+			<h3 class="label">
+				<%= e.event_type %>
 			</h3>
-			<%= e.event_type %>
-
-			<h3>
+			<h4>
 				Format: 
+			</h4>
+			<h3 class="label">
+				<%= e.format %>
 			</h3>
-			<%= e.format %>
-
-			<h3>
-				Venue: 
+			<h4>
+				Where: 
+			</h4>
+			<h3 class="label">
+				<%= e.venue %>
 			</h3>
-			<%= e.venue %>
-
-			<h3>
-				Date: 
+			<h4>
+				When: 
+			</h4>
+			<h3 class="label">
+				<%= e.date %>
 			</h3>
-			<%= e.date %>
-
+			<h4>	
+				RSVP:
+			</h4>
 			<div id="favorite_form-<%=e.id%>">
 				<% if current_user.userevents.find_by(id: e.id) %>
 					<%= form_for(current_user.userevents.find_by(id: e.id), url: userfollowevents_path, remote: true,  html: { method: :delete }) do |f| %>
 						<div>
 							<%= hidden_field_tag :event_id, e.id %>
 						</div>
-						<%= f.submit "Not Going", class: "btn" %>
+						<%= f.submit "Not Going", class: "btn btn-primary" %>
 					<% end %>
 				<% else %>
 					<%= form_for(current_user.userfollowevents.build, remote: true) do |f| %>

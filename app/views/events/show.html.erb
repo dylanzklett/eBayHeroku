@@ -1,35 +1,36 @@
+<div class="ev-show-background">
+	<h1>
+		Event:
+	</h1>
+	<h3>
+		<%=@event.event_name %>
+	</h3>
+	<h1>
+		Venue:
+	</h1>
+	<h3>
+		<%=@event.venue %>
+	</h3>
 
-<h1>
-	Event:
-</h1>
-<h3>
-	<%=@event.event_name %>
-</h3>
-<h1>
-	Venue:
-</h1>
-<h3>
-	<%=@event.venue %>
-</h3>
-
-<h1>
-	Date:
-</h1>
-<h3>
-	<%=@event.date %>
-</h3>
-<div id="favorite_form">
-	<% if current_user.userevents.find_by(id: params[:id]) %>
-		<%= form_for(current_user.userevents.find(params[:id]), url: userfollowevents_path,  html: { method: :delete }) do |f| %>
-			<div><%= hidden_field_tag :event_id, @event.id %></div>
-			<%= f.submit "Not Going", class: "btn" %>
-	<% end %>
-	<% else %>
-		<%= form_for(current_user.userfollowevents.build) do |f| %>
-				<div>
-					<%= hidden_field_tag :event_id, @event.id %>
-				</div>
-				<%= f.submit "I'll be there", class: "btn btn-primary" %>
+	<h1>
+		Date:
+	</h1>
+	<h3>
+		<%=@event.date %>
+	</h3>
+	<div id="favorite_form">
+		<% if current_user.userevents.find_by(id: params[:id]) %>
+			<%= form_for(current_user.userevents.find(params[:id]), url: userfollowevents_path,  html: { method: :delete }) do |f| %>
+				<div><%= hidden_field_tag :event_id, @event.id %></div>
+				<%= f.submit "Not Going", class: "btn" %>
 		<% end %>
-	<% end %>
+		<% else %>
+			<%= form_for(current_user.userfollowevents.build) do |f| %>
+					<div>
+						<%= hidden_field_tag :event_id, @event.id %>
+					</div>
+					<%= f.submit "I'll be there", class: "btn btn-primary" %>
+			<% end %>
+		<% end %>
+	</div>
 </div>

@@ -1,8 +1,10 @@
-<h1>My Upcoming Events</h1>
-<ul>
-	<% @events.each do |e| %>
-	<li>
-		<%= link_to e.event_name, e %>
-	</li>
-	<% end %>
-</ul>
+<div class="UFE">
+	<h1 class="My-Ev-Title">
+		My Upcoming Events
+	</h1>
+		<% @events.each do |e| %>
+		<h3 class="My-Ev-Title">
+			<%= link_to e.event_name, e %>
+		</h3>
+		<% end %>
+</div>
