@@ -2,12 +2,14 @@
 
 	<%@price.each do |c| %>
 
-			<% if @users.where(id:c.user_id).first.email %>
+
+
+			<% if c.user.email %>
 			<p class="match-name">
 				Match Found:
 			</p>
 			<p class="match-name">
-				<%=@users.where(id:c.user_id).first.email%>
+				<%=c.user.email%>
 			</p>
 			<p>
 				Has A:

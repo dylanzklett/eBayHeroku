@@ -22,7 +22,7 @@ class CardsController < ApplicationController
 		@users = User.where.not(id:current_user.id)
 		@card = Card.find(params[:id])
 		#Step 0: All Cards except current card displayed
-		@all = Card.where.not(id:params[:id])
+		@all = Card.where.not(id:params[:id]).where.not(user_id: current_user.id)
 		#Step 1: find all cards with that name
 		@name = @all.where(name:@card.name)
 		#Step 2: take all appropriately named cards and separate out to only matching sets
