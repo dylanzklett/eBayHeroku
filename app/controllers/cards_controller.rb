@@ -5,7 +5,7 @@ class CardsController < ApplicationController
 	end
 
 	def create
-		@card = Card.create(card_params)
+		@card = Card.new(card_params)
 		@card.user_id = current_user.id
 		# if @card.status = "Wanted"
 		# 	@card.status = 
@@ -14,6 +14,7 @@ class CardsController < ApplicationController
 			redirect_to user_path(current_user)
 		else
 			flash[:notice] = "There was an error listing your card."
+			puts @card.errors.full_messages
 			render "new"
 		end
 	end
