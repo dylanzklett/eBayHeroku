@@ -1,29 +1,31 @@
 <div class="new-card-bg">
-	<h1>List a New Card</h1>
-	<%= form_for @card do |f| %>
+	<div class="new-card-form">
+		<h1 id="list-head">List a New Card</h1>
+		<%= form_for @card do |f| %>
 
 
-		  <%=f.label :name %>
-		  <p class="new-list">
-		  	<%=f.text_field :name %>
-		  </p>
-		  <%=f.label :set %>
-		  <p class="new-list">
-		  	<%=collection_select(:card, :set, $allowed_sets, :last, :first, prompt: true)%>
-		  </p>
-		  <%=f.label :price %>
-		  <p>(If you want this card, list the highest price you'd trade for. If you are selling it, list the lowest value you'd trade your card for)</p>
-		  <p class="new-list">
-		  	$<%=f.text_field :price %>
-		  </p>
-		  <p>
-			<%=f.label :Status %>
-		  </p>
-		  <p>
-			<%=collection_select(:card, :status, $status, :last, :first, prompt: true)%>
-		  </p>
-			<div class="btn">
-			  <%= f.submit :Submit%>
-			</div>
-	<% end %>
+			  <%=f.label :name %>
+			  <p class="new-list">
+			  	<%=f.text_field :name %>
+			  </p>
+			  <%=f.label :set %>
+			  <p class="new-list">
+			  	<%=collection_select(:card, :set, $allowed_sets, :last, :first, prompt: true)%>
+			  </p>
+			  <%=f.label :price %>
+			  <p id="price-info">(If you want this card, list the highest price you'd trade for. If you are selling it, list the lowest value you'd trade your card for)</p>
+			  <p class="new-list">
+			  	$<%=f.text_field :price %>
+			  </p>
+			  <p>
+				<%=f.label :Status %>
+			  </p>
+			  <p>
+				<%=collection_select(:card, :status, $status, :last, :first, prompt: true)%>
+			  </p>
+				<div class="btn">
+				  <%= f.submit :Submit%>
+				</div>
+		<% end %>
+	</div>
 </div>

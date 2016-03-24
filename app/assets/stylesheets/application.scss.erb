@@ -19,6 +19,9 @@ html{
 	width:100%;
 }
 
+body{
+	background-color:black;
+}
 
 /*Card background image to use later:
 background-image: url(<%=asset_path 'card-back.jpeg' %>);*/
@@ -91,7 +94,6 @@ background-image: url(<%=asset_path 'card-back.jpeg' %>);*/
 	background-color: rgba(0,0,0,0.6);
 	color:white;
 	font-size: 25px;
-	opacity: 1.0 !important;
 }
 .align-left{
 	text-align: left;
@@ -217,11 +219,24 @@ background-image: url(<%=asset_path 'card-back.jpeg' %>);*/
 	height:700px;
 	color:white;
 	.btn{
-
+		color:red;
 	}
 	.new-list{
 		color:black;
 	}
+}
+.new-card-form{
+	background:rgba(145,170,179,0.7);
+	font-size: 25px;
+	text-align:center;
+	margin-left:27%;
+	max-width:520px;
+	max-height:720px;
+	word-wrap:break-word;
+	border-radius:5px;
+}
+#price-info{
+	font-size:18px;
 }
 .UFName{
 	margin-left: 5%;
@@ -231,6 +246,9 @@ background-image: url(<%=asset_path 'card-back.jpeg' %>);*/
 
 }
 
+#card_status{
+	width:180px;
+}
 
 /*User Edit Account Page*/
 
